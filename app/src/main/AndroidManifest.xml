@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.batache.dokany">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".DokanyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Dokany">
+        <activity android:name=".app.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".app.SearchActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name=".app.ProductDetailActivity"
+            android:label="" />
+        <activity android:name=".app.AuthenticateActivity" />
+        <activity
+            android:name=".app.CouponsActivity"
+            android:label="@string/coupons" />
+        <activity
+            android:name=".app.OrdersActivity"
+            android:label="@string/orders" />
+        <activity
+            android:name=".app.CartActivity"
+            android:label="@string/cart" />
+    </application>
+
+</manifest>

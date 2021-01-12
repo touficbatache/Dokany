@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.ProductDetailActivity">
+
+    <include layout="@layout/app_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentCl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ScrollView
+            android:id="@+id/productDetailsSv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:paddingTop="16dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/white"
+                    android:contentDescription="Product image"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--                <com.facebook.drawee.view.SimpleDraweeView-->
+                <!--                    android:id="@+id/imageSdv"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginHorizontal="48dp"-->
+                <!--                    android:background="@color/white"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    fresco:actualImageScaleType="fitCenter"-->
+                <!--                    fresco:viewAspectRatio="1" />-->
+
+                <TextView
+                    android:id="@+id/priceBeforeSale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView"
+                    tools:text="LBP 1,750" />
+
+                <TextView
+                    android:id="@+id/titleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:letterSpacing="0"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/colorOnBackgroundHighEmphasisLight"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/priceBeforeSale"
+                    tools:text="Warm Carw Longsleev" />
+
+                <TextView
+                    android:id="@+id/relevantDetailTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titleTv"
+                    tools:text="330ml" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/pricesMenu"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/relevantDetailTv"
+                    tools:visibility="visible">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/textField"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        tools:text="1,000 LBP" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.batache.dokany.view.DokanySellerChooser
+                    android:id="@+id/sellerChooserView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/relevantDetailTv" />
+
+                <TextView
+                    android:id="@+id/priceTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/relevantDetailTv"
+                    tools:text="1,000 LBP" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <!-- app:strokeWidth="1dp"
+            app:strokeColor="#e0e0e0"
+            app:cardElevation="0dp" -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.batache.dokany.view.QuantityView
+                    android:id="@+id/quantityChooserView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="14dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="4dp"
+                    app:layout_constraintEnd_toStartOf="@id/addToCartBtn"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addToCartBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:maxWidth="50dp"
+                    android:padding="0dp"
+                    android:text="@string/add_to_cart"
+                    app:icon="@drawable/ic_baseline_add_shopping_cart_24"
+                    app:iconGravity="textStart"
+                    app:layout_constraintEnd_toStartOf="@id/goToCartBtn"
+                    app:layout_constraintStart_toEndOf="@id/quantityChooserView" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/goToCartBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:maxWidth="50dp"
+                    android:padding="0dp"
+                    android:text="@string/go_to_cart"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/changeQuantityBtn"
+                    app:layout_constraintStart_toEndOf="@id/addToCartBtn" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/changeQuantityBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:text="@string/change_quantity"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/removeFromCartBtn"
+                    app:layout_constraintStart_toEndOf="@id/goToCartBtn" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/removeFromCartBtn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:text="@string/remove"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/changeQuantityBtn" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="bottomNavigationView">
+
+    <item
+        android:id="@+id/shopFragment"
+        android:icon="@drawable/selector_ic_storefront"
+        android:title="@string/shop" />
+    <item
+        android:id="@+id/storesFragment"
+        android:icon="@drawable/selector_ic_storefront"
+        android:title="@string/stores" />
+    <item
+        android:id="@+id/brandsFragment"
+        android:icon="@drawable/selector_ic_local_offer"
+        android:title="@string/brands" />
+    <item
+        android:id="@+id/favoritesFragment"
+        android:icon="@drawable/selector_ic_favorite"
+        android:title="@string/favorites" />
+    <item
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/selector_ic_account_circle"
+        android:title="@string/account" />
+
+</menu>

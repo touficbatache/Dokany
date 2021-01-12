@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.batache.dokany.view.DokanyTopAppBar
+        android:id="@+id/dokanyTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        app:showLogo="true" />
+
+    <!--    <com.google.android.material.appbar.AppBarLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="#ffffff"-->
+    <!--        app:liftOnScroll="true">-->
+
+    <!--        <FrameLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="?attr/actionBarSize">-->
+
+    <!--            <androidx.appcompat.widget.AppCompatImageView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="28dp"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:adjustViewBounds="true"-->
+    <!--                app:srcCompat="@drawable/ic_dokany_logo" />-->
+
+    <!--        </FrameLayout>-->
+
+    <!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    <LinearLayout
+        android:id="@+id/contentCl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Signed in as"
+                android:textAppearance="?attr/textAppearanceOverline"
+                app:layout_constraintBottom_toTopOf="@id/phoneNumberTv"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/phoneNumberTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="+961 76 142 144" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dddddd" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/actionsRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dddddd" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/customerSupportBtn"
+            style="@style/Widget.Dokany.List.ListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Chat with us"
+            android:theme="@style/Widget.Dokany.List.ListItem"
+            app:icon="@drawable/ic_baseline_support_agent_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signOutBtn"
+            style="@style/Widget.Dokany.List.ListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign out"
+            android:theme="@style/Widget.Dokany.List.ListItem"
+            app:icon="@drawable/ic_baseline_logout_24" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

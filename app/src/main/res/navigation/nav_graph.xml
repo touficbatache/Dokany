@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/shopFragment">
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.batache.dokany.app.ShopFragment"
+        android:label="Shop"
+        tools:layout="@layout/fragment_shop" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.batache.dokany.app.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.batache.dokany.app.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account" />
+
+</navigation>

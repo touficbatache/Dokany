@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.ShopFragment">
+
+    <com.batache.dokany.view.DokanyTopAppBar
+        android:id="@+id/dokanyTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actions="@menu/menu_shop"
+        app:liftOnScroll="true"
+        app:showLogo="true" />
+
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/productsRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:spanCount="3"
+        tools:itemCount="10"
+        tools:listitem="@layout/layout_product" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

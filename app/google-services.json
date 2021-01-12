@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "768780100811",
+    "firebase_url": "https://dokany-app.firebaseio.com",
+    "project_id": "dokany-app",
+    "storage_bucket": "dokany-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768780100811:android:8d0e4dd24d65ec4231674e",
+        "android_client_info": {
+          "package_name": "com.batache.dokany"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768780100811-fftl4egfv282uqigls274afnit7oe60n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.batache.dokany",
+            "certificate_hash": "ac9627694ed1304aa7bdf6e0b7a4d270207f074c"
+          }
+        },
+        {
+          "client_id": "768780100811-719ij5sg04eeik3r1o0sh6bvsls4o9s1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3IlFx15--HozgT6qJSjZX0EtJVjRnlRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768780100811-719ij5sg04eeik3r1o0sh6bvsls4o9s1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

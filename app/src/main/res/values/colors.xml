@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff9800</color> <!-- #6200EE -->
+    <color name="colorPrimaryVariant">#F57C00</color> <!-- #3700B3 -->
+    <color name="colorSecondary">#F44336</color> <!-- #03DAC5 -->
+
+    <color name="white">#FFF</color>
+    <color name="black">#000</color>
+    <color name="red">#FF0000</color>
+
+    <color name="grey_e0">#E0E0E0</color>
+    <color name="grey_8e">#8E8E8E</color>
+
+    <color name="colorOnBackgroundHighEmphasisLight">#5F6368</color>
+
+    <color name="colorIconTopAppBar">#8A000000</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
+</resources>

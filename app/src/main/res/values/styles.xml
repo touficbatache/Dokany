@@ -1,0 +1,81 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Dokany" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+
+        <!-- System bar attributes -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="M">?attr/isLightTheme</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
+
+        <!-- Type attributes -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Dokany.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Dokany.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Dokany.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Dokany.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Dokany.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Dokany.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Dokany.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Dokany.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Dokany.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Dokany.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Dokany.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Dokany.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Dokany.Overline</item>
+
+        <!-- Shape attributes -->
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Dokany.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Dokany.LargeComponent
+        </item>
+
+        <!-- Widget style attributes -->
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Dokany.BottomSheetDialog</item>
+
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
+    </style>
+
+    <style name="ShapeAppearance.Dokany.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Dokany.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="ThemeOverlay.Dokany.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
+    </style>
+
+    <style name="Widget.Dokany.TopAppBar.NavigationButton" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minHeight">56dp</item>
+    </style>
+
+    <style name="Widget.Dokany.TopAppBar.ActionButton" parent="Widget.AppCompat.ActionButton" />
+
+    <style name="Widget.Dokany.List.ListItem" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="colorPrimary">#3C4043</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="iconPadding">24dp</item>
+    </style>
+
+    <style name="Widget.Theme.Dokany.MyView" parent="">
+        <item name="android:background">@color/gray_400</item>
+        <item name="exampleColor">@color/light_blue_400</item>
+    </style>
+
+</resources>

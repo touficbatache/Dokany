@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Dokany</string>
+
+    <string name="shop">Shop</string>
+    <string name="favorites">Favorites</string>
+    <string name="my_favorites">My favorites</string>
+    <string name="stores">Stores</string>
+    <string name="brands">Brands</string>
+    <string name="coupons">Coupons</string>
+    <string name="my_coupons">My coupons</string>
+    <string name="orders">Orders</string>
+    <string name="my_orders">My orders</string>
+    <string name="account">Account</string>
+
+    <string name="action_search">Search</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_add_to_favorites">Add to favorites</string>
+
+    <string name="error_invalid_phone_number">Please enter a valid phone number!</string>
+    <string name="error_incorrect_code">The code you entered is incorrect!</string>
+
+    <string name="cart">Cart</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="go_to_cart">Go to cart</string>
+    <string name="change_quantity">Change quantity</string>
+    <string name="remove">Remove</string>
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="continue_shopping">Continue shopping</string>
+
+    <string name="product_added_to_cart">Product added to your cart</string>
+    <string name="product_quantity_changed">Product\'s quantity has been changed</string>
+
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
+    <string name="go_to_favorites">Go to favorites</string>
+
+</resources>

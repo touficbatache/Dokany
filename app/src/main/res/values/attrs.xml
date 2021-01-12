@@ -1,0 +1,18 @@
+<resources>
+<!--    <declare-styleable name="DokanyTopAppBar">-->
+<!--        <attr name="showLogo" format="boolean" />-->
+<!--    </declare-styleable>-->
+
+    <declare-styleable name="DokanyTopAppBar">
+        <attr name="startIcon" format="reference" />
+        <attr name="title" format="string" />
+        <attr name="showLogo" format="boolean" />
+        <attr name="actionIconsEnd" format="reference" />
+        <attr name="actions" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="QuantityView">
+        <attr name="minQuantity" format="string" />
+        <attr name="maxQuantity" format="string" />
+    </declare-styleable>
+</resources>
