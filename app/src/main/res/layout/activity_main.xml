@@ -15,14 +15,30 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_height="24dp" />
 
+    <TextView
+        android:id="@+id/ongoingOrderBar"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:background="?attr/colorPrimary"
+        android:gravity="center"
+        android:text="Ongoing order"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="?attr/colorOnPrimary"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusBarOverlay"
+        tools:visibility="visible" />
+
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/statusBarOverlay">
+        app:layout_constraintTop_toBottomOf="@id/ongoingOrderBar">
 
         <fragment
             android:id="@+id/navHostFragment"
@@ -35,6 +51,19 @@
     </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favoritesFab"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/favorites"
+        android:theme="@style/Theme.Dokany.Secondary.Surface.OnSecondary.Secondary"
+        android:tooltipText="@string/favorites"
+        app:layout_constraintBottom_toTopOf="@id/cartFab"
+        app:layout_constraintEnd_toEndOf="@id/fragmentContainer"
+        app:srcCompat="@drawable/ic_line_heart" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/cartFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,14 +72,24 @@
         android:tooltipText="@string/cart"
         app:layout_constraintBottom_toBottomOf="@id/fragmentContainer"
         app:layout_constraintEnd_toEndOf="@id/fragmentContainer"
-        app:srcCompat="@drawable/ic_outline_shopping_cart_24"
-        app:tint="@color/white" />
+        app:srcCompat="@drawable/ic_line_shopping_cart" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#fce38a"
+        app:layout_constraintBottom_toBottomOf="@id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="@id/bottomNavigationView"
+        app:layout_constraintStart_toStartOf="@id/bottomNavigationView"
+        app:layout_constraintTop_toTopOf="@id/bottomNavigationView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:itemRippleColor="#14ff9800"
         app:labelVisibilityMode="labeled"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

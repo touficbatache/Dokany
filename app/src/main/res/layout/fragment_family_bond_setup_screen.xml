@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setupScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/setupScreenTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/averta_semibold"
+        android:gravity="center"
+        android:text="@string/setup_family_bond"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        android:textColor="#111111"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_marginTop="56dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/createFamilyBondCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="56dp"
+        app:contentPaddingTop="56dp"
+        app:layout_constraintBottom_toTopOf="@id/joinFamilyBondCard"
+        app:layout_constraintTop_toBottomOf="@id/setupScreenTitle"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:strokeColor="@color/material_on_surface_stroke"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I'll be the manager"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="#111111" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/averta_semibold"
+                android:text="Create a new Family Bond"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="#111111" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/joinFamilyBondCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="56dp"
+        app:contentPaddingTop="56dp"
+        app:layout_constraintBottom_toTopOf="@id/setupScreenNextBtn"
+        app:layout_constraintTop_toBottomOf="@id/createFamilyBondCard"
+        app:strokeColor="@color/material_on_surface_stroke"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I'll be a member"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="#111111" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/averta_semibold"
+                android:text="Join an existing Family Bond"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="#111111" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/setupScreenNextBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:enabled="false"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:text="@string/next"
+        android:textSize="16sp"
+        android:theme="@style/Theme.Dokany.OnBeige"
+        app:icon="@drawable/ic_line_arrow_right"
+        app:iconGravity="textEnd"
+        app:iconPadding="20dp"
+        app:iconSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="#111111" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

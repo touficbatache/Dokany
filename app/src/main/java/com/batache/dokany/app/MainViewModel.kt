@@ -1,61 +1,50 @@
 package com.batache.dokany.app
 
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.batache.dokany.db.product_sellers.ProductSellersRepository
-import com.batache.dokany.db.sellers.SellersRepository
-import com.batache.dokany.model.pojo.ViewModelConnection
+import com.batache.dokany.DokanyApplication
+import com.batache.dokany.app.base.BaseViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.IOException
 
-class MainViewModel(private val sellersRepository: SellersRepository) : ViewModel() {
+class MainViewModel(application: DokanyApplication) : BaseViewModel(application) {
 
-  val connectionLiveData: MediatorLiveData<ViewModelConnection> = MediatorLiveData()
+  /**
+   * The data sources this ViewModel will fetch results from.
+   */
+  private val productsRepository = application.productsRepository
+  private val sellersRepository = application.sellersRepository
 
   init {
-//    refreshSellersDataIfNeeded()
-    refreshSellersFromRepository()
+    refreshProductsAndSellers()
   }
 
-  private fun refreshSellersDataIfNeeded() {
+  private fun refreshProductsAndSellers() {
     viewModelScope.launch {
-      if (sellersRepository.getLocalSellersCount() <= 0) {
-        refreshSellersFromRepository()
+      withContext(Dispatchers.IO) {
+        try {
+          productsRepository.refreshProducts()
+          sellersRepository.refreshSellers()
+          _eventNetworkError.postValue(false)
+        } catch (networkError: IOException) {
+          // Show a Toast error message and hide the progress bar.
+          _eventNetworkError.postValue(true)
+        }
       }
     }
   }
 
-  private fun refreshSellersFromRepository() {
-    viewModelScope.launch {
-      try {
-        sellersRepository.refreshSellers()
-        connectionLiveData.postValue(
-          ViewModelConnection(
-            eventNetworkError = false
-          )
-        )
-
-      } catch (networkError: IOException) {
-        // Show a Toast error message and hide the progress bar.
-        connectionLiveData.postValue(
-          ViewModelConnection(
-            eventNetworkError = true
-          )
-        )
+  class Factory(private val application: DokanyApplication) :
+    ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+      if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+        @Suppress("UNCHECKED_CAST")
+        return MainViewModel(application) as T
       }
+      throw IllegalArgumentException("Unknown ViewModel class")
     }
-  }
-
-}
-
-class MainViewModelFactory(private val sellersRepository: SellersRepository) : ViewModelProvider.Factory {
-  override fun <T : ViewModel> create(modelClass: Class<T>): T {
-    if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-      @Suppress("UNCHECKED_CAST")
-      return MainViewModel(sellersRepository) as T
-    }
-    throw IllegalArgumentException("Unknown ViewModel class")
   }
 }

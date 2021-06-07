@@ -7,18 +7,38 @@
 
     <fragment
         android:id="@+id/shopFragment"
-        android:name="com.batache.dokany.app.ShopFragment"
-        android:label="Shop"
+        android:name="com.batache.dokany.app.shop.ShopFragment"
+        android:label="@string/shop"
         tools:layout="@layout/fragment_shop" />
+    <!--    <fragment-->
+    <!--        android:id="@+id/storesFragment"-->
+    <!--        android:name="com.batache.dokany.app.shop.stores.StoresFragment"-->
+    <!--        android:label="Stores"-->
+    <!--        tools:layout="@layout/fragment_stores" />-->
     <fragment
-        android:id="@+id/favoritesFragment"
-        android:name="com.batache.dokany.app.FavoritesFragment"
-        android:label="FavoritesFragment"
-        tools:layout="@layout/fragment_favorites" />
+        android:id="@+id/recipesFragment"
+        android:name="com.batache.dokany.app.recipes.RecipesFragment"
+        android:label="@string/recipes"
+        tools:layout="@layout/fragment_recipes" />
+    <fragment
+        android:id="@+id/familyBondFragment"
+        android:name="com.batache.dokany.app.family_bond.FamilyBondFragment"
+        android:label="@string/family_bond"
+        tools:layout="@layout/fragment_family_bond" />
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.batache.dokany.app.orders.OrdersFragment"
+        android:label="@string/orders"
+        tools:layout="@layout/fragment_orders" />
+    <!--    <fragment-->
+    <!--        android:id="@+id/favoritesFragment"-->
+    <!--        android:name="com.batache.dokany.app.favorites.FavoritesFragment"-->
+    <!--        android:label="Favorites"-->
+    <!--        tools:layout="@layout/fragment_favorites" />-->
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.batache.dokany.app.AccountFragment"
-        android:label="AccountFragment"
+        android:name="com.batache.dokany.app.account.AccountFragment"
+        android:label="@string/account"
         tools:layout="@layout/fragment_account" />
 
 </navigation>

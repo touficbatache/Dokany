@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:background="#ECEFF4">
+
+    <ImageButton
+        android:id="@+id/closeBtn"
+        style="@style/Widget.Dokany.TopAppBar.NavigationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        app:srcCompat="@drawable/ic_line_close" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="96dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/quantityPlusBtn"
+            style="@style/Shape.Dokany.Shop.QuickAddToCart.Button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_line_plus"
+            android:strokeColor="#000"
+            android:tint="#000"
+            tools:strokeColor="#0BA4C3"
+            tools:tint="#0BA4C3" />
+
+        <TextView
+            android:id="@+id/quantityCountTv"
+            style="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginVertical="8dp"
+            android:text="1"
+            android:textColor="#000"
+            android:textSize="28sp"
+            tools:textColor="#0BA4C3" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/quantityMinusBtn"
+            style="@style/Shape.Dokany.Shop.QuickAddToCart.Button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/ic_line_minus"
+            android:strokeColor="#000"
+            android:tint="#000"
+            tools:strokeColor="#0BA4C3"
+            tools:tint="#0BA4C3" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addOrGoToCartBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/white"
+        android:letterSpacing="0"
+        android:padding="0dp"
+        android:text="@string/add_to_cart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:icon="@drawable/avd_add_to_shopping_cart"
+        app:iconGravity="textStart"
+        app:iconTint="@color/black"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle" />
+
+</LinearLayout>

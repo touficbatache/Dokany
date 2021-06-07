@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.batache.dokany.view.DokanyTopAppBar
+        android:id="@+id/dokanyTopAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        app:showLogo="true" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/contentCl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:text="Signed in as"
+                    android:textAppearance="?attr/textAppearanceOverline"
+                    app:layout_constraintBottom_toTopOf="@id/phoneNumberTv"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/phoneNumberTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toTopOf="@id/manageAccountChip"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="+961 76 142 144" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/manageAccountChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Manage account"
+                    app:chipBackgroundColor="@android:color/transparent"
+                    app:chipStrokeColor="#eee"
+                    app:chipStrokeWidth="1dp"
+                    app:layout_constraintBottom_toTopOf="@id/subscriptionCard"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/subscriptionCard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardElevation="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/gradient"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="24dp"
+                            android:layout_marginVertical="16dp"
+                            android:shadowColor="#dddddd"
+                            android:shadowDx="0.1"
+                            android:shadowDy="0.1"
+                            android:shadowRadius="4"
+                            android:text="Your subscription"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            android:textColor="?attr/colorOnPrimary" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="24dp"
+                            android:paddingBottom="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:shadowColor="#dddddd"
+                                android:shadowDx="0.1"
+                                android:shadowDy="0.1"
+                                android:shadowRadius="2"
+                                android:text="1-month free trial"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                android:textColor="?attr/colorOnPrimary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="until 19/02/2020"
+                                android:textAppearance="?attr/textAppearanceOverline"
+                                android:textColor="?attr/colorOnPrimary" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="#dddddd" />
+
+            <com.airbnb.epoxy.EpoxyRecyclerView
+                android:id="@+id/actionsRv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="4"
+                tools:listitem="@layout/model_list_item" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="#dddddd" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/customerSupportBtn"
+                style="@style/Widget.Dokany.List.ListItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chat with us"
+                android:theme="@style/Widget.Dokany.List.ListItem"
+                app:icon="@drawable/ic_line_support_agent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signOutBtn"
+                style="@style/Widget.Dokany.List.ListItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Sign out"
+                android:theme="@style/Widget.Dokany.List.ListItem"
+                app:icon="@drawable/ic_line_signout" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.shop.stores.StoreDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.airbnb.epoxy.EpoxyRecyclerView
+                android:id="@+id/coverImagesRv"
+                android:layout_width="0dp"
+                android:layout_height="260dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="3"
+                tools:listitem="@layout/model_cover_image" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0.4"
+                android:background="@drawable/bg_cover_gradient"
+                app:layout_constraintBottom_toBottomOf="@id/coverImagesRv"
+                app:layout_constraintEnd_toEndOf="@id/coverImagesRv"
+                app:layout_constraintStart_toStartOf="@id/coverImagesRv"
+                app:layout_constraintTop_toTopOf="@id/coverImagesRv" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/coverImagesRv">
+
+                <TextView
+                    android:id="@+id/nameTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Shoppies" />
+
+                <TextView
+                    android:id="@+id/starCountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    app:layout_constraintStart_toStartOf="@id/nameTv"
+                    app:layout_constraintTop_toBottomOf="@id/nameTv"
+                    tools:text="4.2" />
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/ratingBar"
+                    style="@style/Widget.Dokany.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    app:layout_constraintBottom_toBottomOf="@id/starCountTv"
+                    app:layout_constraintStart_toEndOf="@id/starCountTv"
+                    app:layout_constraintTop_toTopOf="@id/starCountTv"
+                    tools:rating="4.2" />
+
+                <TextView
+                    android:id="@+id/reviewCountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    app:layout_constraintBottom_toBottomOf="@id/ratingBar"
+                    app:layout_constraintStart_toEndOf="@id/ratingBar"
+                    app:layout_constraintTop_toTopOf="@id/ratingBar"
+                    tools:text="(43 reviews)" />
+
+                <TextView
+                    android:id="@+id/productCountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    app:layout_constraintStart_toStartOf="@id/nameTv"
+                    app:layout_constraintTop_toBottomOf="@id/ratingBar"
+                    tools:text="278 products" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/productCountTv"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabRippleColor="#14ff9800">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overview" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Products" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reviews" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <LinearLayout
+                    android:id="@+id/setDefaultAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/pinToTopAction"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tabs">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        style="@style/Shape.Dokany.Store.Action.Icon"
+                        app:srcCompat="@drawable/ic_outline_task_alt_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Set default"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?attr/colorSecondary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/pinToTopAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/reportIssueAction"
+                    app:layout_constraintStart_toEndOf="@id/setDefaultAction"
+                    app:layout_constraintTop_toTopOf="@id/setDefaultAction">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        style="@style/Shape.Dokany.Store.Action.Icon"
+                        app:srcCompat="@drawable/ic_outline_push_pin_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Pin to top"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?attr/colorSecondary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/reportIssueAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/pinToTopAction"
+                    app:layout_constraintTop_toTopOf="@id/pinToTopAction">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        style="@style/Shape.Dokany.Store.Action.Icon"
+                        app:srcCompat="@drawable/ic_outline_report_problem_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Report issue"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?attr/colorSecondary" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--    <com.google.android.material.appbar.AppBarLayout-->
+        <!--        android:id="@+id/appBar"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="200dp">-->
+
+        <!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
+        <!--            android:id="@+id/toolbar_layout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+        <!--            app:toolbarId="@+id/toolbar">-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:scaleType="centerCrop"-->
+        <!--                android:src="@drawable/gradient_2"-->
+        <!--                app:layout_collapseMode="parallax" />-->
+
+        <!--            <com.google.android.material.appbar.MaterialToolbar-->
+        <!--                android:id="@+id/toolbar"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="?attr/actionBarSize"-->
+        <!--                android:elevation="0dp"-->
+        <!--                app:layout_collapseMode="pin" />-->
+
+        <!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+
+        <!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        style="@style/Widget.Dokany.TopAppBar.ActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+</FrameLayout>

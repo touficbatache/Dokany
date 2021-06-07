@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.ShopFragment">
+    tools:context=".app.shop.ShopFragment">
 
     <com.batache.dokany.view.DokanyTopAppBar
         android:id="@+id/dokanyTopAppBar"
@@ -12,18 +12,35 @@
         android:layout_height="wrap_content"
         app:actions="@menu/menu_shop"
         app:liftOnScroll="true"
+        app:scrollFlags="scroll|enterAlways"
         app:showLogo="true" />
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/productsRv"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="16dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:spanCount="3"
-        tools:itemCount="10"
-        tools:listitem="@layout/layout_product" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.batache.dokany.view.SegmentedControlView
+                android:id="@+id/segmentedControlView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:actions="@menu/menu_shop_stores_brands"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/segmentedControlView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

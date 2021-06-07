@@ -1,39 +1,110 @@
 <resources>
     <string name="app_name">Dokany</string>
 
+    <!-- Shop -->
     <string name="shop">Shop</string>
-    <string name="favorites">Favorites</string>
-    <string name="my_favorites">My favorites</string>
+
+    <!-- Shop — Products -->
+    <string name="products">Products</string>
+
+    <!-- Shop — Stores -->
     <string name="stores">Stores</string>
+
+    <!-- Shop — Brands -->
     <string name="brands">Brands</string>
-    <string name="coupons">Coupons</string>
-    <string name="my_coupons">My coupons</string>
+
+    <!-- Recipes -->
+    <string name="recipes">Recipes</string>
+
+    <!-- Family Bond -->
+    <string name="family_bond">Family Bond</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="setup_family_bond">Setup Family Bond</string>
+    <string name="you_re_a_member_of">You\'re a member of</string>
+    <string name="you_re_an_admin_of">You\'re an admin of</string>
+    <string name="manage_profiles">Manage profiles</string>
+    <string name="welcome_to_family_bond">Welcome to Family Bond</string>
+    <string name="family_bond_description">Family Bond brings the family together. Kids, teens, parents and grandparents all have access to shared shopping lists that make it easier than ever to grocery shop together as a family.</string>
+    <string name="welcome_to_family_bond_temp">Family Bond is Coming Soon</string>
+
+    <!-- Orders / Account — Orders -->
     <string name="orders">Orders</string>
-    <string name="my_orders">My orders</string>
+    <string name="no_orders_yet">You have no orders yet</string>
+    <string name="order_details">Order details</string>
+    <string name="error_already_ongoing_order_exists">You already have an ongoing order</string>
+    <string name="view_order">View order</string>
+
+    <!-- Account -->
     <string name="account">Account</string>
 
+    <!-- Account — Authenticate -->
+    <string name="error_invalid_phone_number">Please enter a valid phone number!</string>
+    <string name="error_invalid_email">Please enter a valid e-mail address!</string>
+    <string name="error_incorrect_code">The code you entered is incorrect!</string>
+    <string name="error_couldnt_save_info">Couldn\'t save your info, try again in a few</string>
+
+    <!-- Account — Addresses -->
+    <string name="addresses">Addresses</string>
+    <string name="add_address">Add address</string>
+
+    <!-- Account — Coupons -->
+    <string name="coupons">Coupons</string>
+
+    <!-- Account — Support -->
+    <string name="chat_with_us">Chat with us</string>
+
+    <!-- Favorites -->
+    <string name="favorites">Favorites</string>
+    <string name="no_favorites_yet">You have no favorites yet</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
+    <string name="go_to_favorites">Go to favorites</string>
+
+    <!-- Cart -->
+    <string name="cart">Cart</string>
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="continue_shopping">Continue shopping</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="check_out">Check out</string>
+    <string name="delivery_will_be_calculated_at_checkout">Delivery will be calculated at checkout.</string>
+
+    <!-- Checkout -->
+    <string name="checkout">Checkout</string>
+
+    <!-- Test? -->
+    <string name="add_product">Add product</string>
+
+    <!-- Maybe delete this? -->
     <string name="action_search">Search</string>
     <string name="action_filter">Filter</string>
     <string name="action_save">Save</string>
     <string name="action_delete">Delete</string>
     <string name="action_add_to_favorites">Add to favorites</string>
 
-    <string name="error_invalid_phone_number">Please enter a valid phone number!</string>
-    <string name="error_incorrect_code">The code you entered is incorrect!</string>
-
-    <string name="cart">Cart</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="go_to_cart">Go to cart</string>
     <string name="change_quantity">Change quantity</string>
     <string name="remove">Remove</string>
-    <string name="empty_cart">Your cart is empty</string>
-    <string name="continue_shopping">Continue shopping</string>
-
     <string name="product_added_to_cart">Product added to your cart</string>
     <string name="product_quantity_changed">Product\'s quantity has been changed</string>
 
-    <string name="added_to_favorites">Added to favorites</string>
-    <string name="removed_from_favorites">Removed from favorites</string>
-    <string name="go_to_favorites">Go to favorites</string>
+    <!-- Error messages -->
+    <string name="network_error">There\'s been a network error, retry later</string>
+    <string name="auth_error">Feature not available unless you sign in</string>
+    <string name="checkout_auth_error">You have to sign in before checking out</string>
 
+    <string name="sign_in">Sign in</string>
+    <string name="sign_out">Sign out</string>
+
+    <string name="dialog_permission_title">Permission required</string>
+    <string name="dialog_permission_default_message">Default message</string>
+    <string name="dialog_permission_button_positive">OK</string>
+
+    <!-- Global -->
+    <string name="got_it">Got it!</string>
+    <string name="get_started">Get started</string>
+    <string name="next">Next</string>
+    <string name="manage">Manage</string>
+    <string name="done">Done</string>
+    <string name="is_coming_soon">is Coming Soon</string>
 </resources>

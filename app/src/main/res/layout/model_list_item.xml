@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listItemBtn"
+    style="@style/Widget.Dokany.List.ListItem"
+    android:layout_width="match_parent"
+    android:textAppearance="?attr/textAppearanceSubtitle1"
+    android:layout_height="wrap_content"
+    android:theme="@style/Widget.Dokany.List.ListItem"
+    tools:icon="@drawable/ic_line_support_agent"
+    tools:text="Chat with us" />

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcomeScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/welcomeScreenTopBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+<!--        <TextView-->
+<!--            android:id="@+id/welcomeScreenOverline"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:alpha="0"-->
+<!--            android:fontFamily="@font/averta_semibold"-->
+<!--            android:text="@string/welcome_to"-->
+<!--            android:textAppearance="?attr/textAppearanceHeadline4"-->
+<!--            android:textColor="#111111"-->
+<!--            tools:alpha="1" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/welcomeScreenTitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:alpha="0"-->
+<!--            android:fontFamily="@font/averta_semibold"-->
+<!--            android:text="@string/family_bond"-->
+<!--            android:textAppearance="?attr/textAppearanceHeadline3"-->
+<!--            android:textColor="#111111"-->
+<!--            android:visibility="invisible"-->
+<!--            tools:alpha="1"-->
+<!--            tools:visibility="visible" />-->
+
+        <TextView
+            android:id="@+id/welcomeScreenOverline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:fontFamily="@font/averta_semibold"
+            android:text="@string/family_bond"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="#111111"
+            tools:alpha="1" />
+
+        <TextView
+            android:id="@+id/welcomeScreenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:fontFamily="@font/averta_semibold"
+            android:text="@string/is_coming_soon"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="#111111"
+            android:visibility="invisible"
+            tools:alpha="1"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/welcomeScreenFamilyKnotIv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="80dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/avd_family_knot" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/welcomeScreenGetStartedBtn"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="25dp"
+        android:text="@string/get_started"
+        android:textSize="16sp"
+        android:theme="@style/Theme.Dokany.OnBeige"
+        android:visibility="gone"
+        app:icon="@drawable/ic_line_arrow_right"
+        app:iconGravity="textEnd"
+        app:iconPadding="20dp"
+        app:iconSize="28dp"
+        app:strokeColor="#111111"
+        tools:visibility="visible" />
+
+</LinearLayout>

@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff9800</color> <!-- #6200EE -->
-    <color name="colorPrimaryVariant">#F57C00</color> <!-- #3700B3 -->
-    <color name="colorSecondary">#F44336</color> <!-- #03DAC5 -->
+<!--    <color name="colorPrimary">#FBD758</color> &lt;!&ndash; #6200EE -> #FF9800 -> #EF7215 &ndash;&gt;-->
+<!--    <color name="colorPrimaryVariant">#FCE38A</color> &lt;!&ndash; #3700B3 -> #F57C00 -> #FC6600 &ndash;&gt;-->
+<!--    <color name="colorOnPrimary">#111111</color>-->
+
+<!--    <color name="colorSecondary">#FDEFBC</color> &lt;!&ndash; #03DAC5 -> F44336 &ndash;&gt;-->
+<!--    <color name="colorOnSecondary">#111111</color>-->
+
+    <color name="colorPrimary">#ff5522</color>
+    <color name="colorPrimaryVariant">#ff7e55</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSecondary">#EE3900</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
 
     <color name="white">#FFF</color>
     <color name="black">#000</color>
@@ -18,4 +28,5 @@
     <color name="light_blue_600">#FF039BE5</color>
     <color name="gray_400">#FFBDBDBD</color>
     <color name="gray_600">#FF757575</color>
+    <color name="segmented_control_divider">#8e8e93</color>
 </resources>

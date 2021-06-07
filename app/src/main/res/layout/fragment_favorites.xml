@@ -4,18 +4,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.batache.dokany.view.DokanyTopAppBar
-        android:id="@+id/dokanyTopAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:liftOnScroll="true"
-        app:showLogo="true" />
+    <include layout="@layout/app_bar" />
 
-    <com.airbnb.epoxy.EpoxyRecyclerView
-        android:id="@+id/favoritesRv"
+    <FrameLayout
+        android:id="@+id/contentFl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/favoritesRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/emptyFavoritesLl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fafafa"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/no_favorites_yet"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="#828286"
+                android:textSize="24sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continueShoppingBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/continue_shopping" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                app:srcCompat="@drawable/no_favorites" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

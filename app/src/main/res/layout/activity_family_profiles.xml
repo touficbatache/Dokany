@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.family_bond.FamilyProfilesActivity">
+
+    <include layout="@layout/app_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contentCl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView1"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="100dp"-->
+        <!--            android:drawableTop="@drawable/ic_baseline_add_24"-->
+        <!--            android:textSize="20sp"-->
+        <!--            android:text="TextView" />-->
+
+        <ImageView
+            android:id="@+id/userProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/ic_profile_1"
+            android:padding="20dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/profileTwo"
+            app:layout_constraintEnd_toStartOf="@id/profileOne"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userProfileText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="You"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile"
+            app:layout_constraintStart_toStartOf="@+id/userProfile"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile" />
+
+        <ImageButton
+            android:id="@+id/profileOne"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.58"
+            android:background="@drawable/dash_border"
+            android:clickable="false"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="20dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/profileThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userProfile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_line_plus" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileOneLinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileOne"
+            app:layout_constraintTop_toTopOf="@id/profileOne"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_user_check"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileOneUnlinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileOne"
+            app:layout_constraintTop_toTopOf="@id/profileOne"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_qrcode_scan"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/profileOneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/profileOne"
+            app:layout_constraintStart_toStartOf="@+id/profileOne"
+            app:layout_constraintTop_toBottomOf="@+id/profileOne"
+            tools:text="Profile 1" />
+
+        <ImageButton
+            android:id="@+id/profileTwo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.58"
+            android:background="@drawable/dash_border"
+            android:clickable="false"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="20dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/profileFour"
+            app:layout_constraintEnd_toStartOf="@id/profileThree"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userProfile"
+            app:srcCompat="@drawable/ic_line_plus" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileTwoLinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileTwo"
+            app:layout_constraintTop_toTopOf="@id/profileTwo"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_user_check"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileTwoUnlinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileTwo"
+            app:layout_constraintTop_toTopOf="@id/profileTwo"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_qrcode_scan"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/profileTwoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/profileTwo"
+            app:layout_constraintStart_toStartOf="@+id/profileTwo"
+            app:layout_constraintTop_toBottomOf="@+id/profileTwo"
+            tools:text="Profile 2" />
+
+        <ImageButton
+            android:id="@+id/profileThree"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.58"
+            android:background="@drawable/dash_border"
+            android:clickable="false"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="20dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/profileFour"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profileTwo"
+            app:layout_constraintTop_toBottomOf="@id/profileOne"
+            app:srcCompat="@drawable/ic_line_plus" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileThreeLinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileThree"
+            app:layout_constraintTop_toTopOf="@id/profileThree"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_user_check"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileThreeUnlinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileThree"
+            app:layout_constraintTop_toTopOf="@id/profileThree"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_qrcode_scan"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/profileThreeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/profileThree"
+            app:layout_constraintStart_toStartOf="@+id/profileThree"
+            app:layout_constraintTop_toBottomOf="@+id/profileThree"
+            tools:text="Profile 3" />
+
+        <ImageButton
+            android:id="@+id/profileFour"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.58"
+            android:background="@drawable/dash_border"
+            android:clickable="false"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="20dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileTwo"
+            app:srcCompat="@drawable/ic_line_plus" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileFourLinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileFour"
+            app:layout_constraintTop_toTopOf="@id/profileFour"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_user_check"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileFourUnlinkedIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:background="@android:color/white"
+            android:visibility="gone"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="@id/profileFour"
+            app:layout_constraintTop_toTopOf="@id/profileFour"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            app:srcCompat="@drawable/ic_line_qrcode_scan"
+            app:tint="#000000"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/profileFourText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/profileFour"
+            app:layout_constraintStart_toStartOf="@+id/profileFour"
+            app:layout_constraintTop_toBottomOf="@+id/profileFour"
+            tools:text="Profile 4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

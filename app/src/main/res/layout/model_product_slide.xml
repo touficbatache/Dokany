@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_e0"
+    android:paddingEnd="0.5dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@android:color/transparent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Product.Cut">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="12dp">
+
+            <!--        android:layout_width="144dp"-->
+            <!--        android:layout_height="96dp"-->
+            <ImageView
+                android:id="@+id/imageIv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="Product image"
+                app:layout_constraintBottom_toTopOf="@id/contentCl"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:src="@drawable/ic_profile_1" />
+
+            <ImageView
+                android:id="@+id/shadow"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/shadow"
+                app:layout_constraintEnd_toEndOf="@id/imageIv"
+                app:layout_constraintStart_toStartOf="@id/imageIv"
+                app:layout_constraintTop_toBottomOf="@id/imageIv" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/contentCl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageIv">
+
+                <com.batache.dokany.view.PriceTextView
+                    android:id="@+id/priceTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:isInitialPrice="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="130000" />
+
+                <TextView
+                    android:id="@+id/titleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#201d18"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/priceTv"
+                    tools:text="Warm Carw Longsleev" />
+
+                <TextView
+                    android:id="@+id/relevantDetailTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="#7f776b"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/titleTv"
+                    tools:text="330ml" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/favoriteAnim"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0"
+                android:layout_margin="8dp"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/imageIv"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/imageIv"
+                app:layout_constraintStart_toStartOf="@id/imageIv"
+                app:layout_constraintTop_toTopOf="@id/imageIv"
+                tools:alpha="1"
+                tools:srcCompat="@drawable/avd_favorite"
+                app:tint="#CC111111" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/soldOutBanner"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/soldout"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/addToCartBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_white_40_percent_ripple"
+            android:clickable="true"
+            android:focusable="true"
+            app:contentPadding="13dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.QuickAddToCart"
+            app:srcCompat="@drawable/ic_line_shopping_cart_add" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>

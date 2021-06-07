@@ -4,13 +4,14 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.cardview.widget.CardView
 import com.batache.dokany.R
+import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.layout_quantity_view.view.*
 
 class QuantityView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyleAttr: Int = 0
-) : CardView(context, attrs, defStyleAttr) {
+) : MaterialCardView(context, attrs, defStyleAttr) {
 
   private var onQuantityChangeListener: OnQuantityChangeListener =
     object : OnQuantityChangeListener {
@@ -42,10 +43,10 @@ class QuantityView @JvmOverloads constructor(
 
   init {
     inflate(context, R.layout.layout_quantity_view, this)
-    init(context, attrs)
+    init(attrs)
   }
 
-  private fun init(context: Context, attrs: AttributeSet?) {
+  private fun init(attrs: AttributeSet?) {
     val ta = getContext().obtainStyledAttributes(attrs, R.styleable.QuantityView)
     ta.getString(R.styleable.QuantityView_minQuantity)?.let { minQuantityAttrValue ->
       min = minQuantityAttrValue.toInt()

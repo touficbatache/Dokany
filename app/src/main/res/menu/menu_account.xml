@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="bottomNavigationView">
+
+    <group android:id="@+id/primary">
+        <item
+            android:id="@+id/addresses"
+            android:icon="@drawable/ic_line_map_marker_edit"
+            android:title="@string/addresses" />
+        <item
+            android:id="@+id/coupons"
+            android:icon="@drawable/ic_outline_ticket_percent_24"
+            android:title="@string/coupons" />
+        <item
+            android:id="@+id/orders"
+            android:icon="@drawable/ic_line_receipt"
+            android:title="@string/orders" />
+    </group>
+
+    <group android:id="@+id/secondary">
+        <item
+            android:id="@+id/chat_with_us"
+            android:icon="@drawable/ic_line_support_agent"
+            android:title="@string/chat_with_us" />
+        <item
+            android:id="@+id/sign_out"
+            android:icon="@drawable/ic_line_signout"
+            android:title="@string/sign_out" />
+    </group>
+
+</menu>

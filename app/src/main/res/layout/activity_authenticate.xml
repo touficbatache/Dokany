@@ -1,210 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.AuthenticateActivity">
+    tools:context=".app.account.authenticate.AuthenticateActivity">
+
+    <include
+        android:id="@+id/phoneNumberScreen"
+        layout="@layout/activity_authenticate_phone_number_screen" />
+
+    <include
+        android:id="@+id/otpScreen"
+        layout="@layout/activity_authenticate_otp_screen"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/userInfoScreen"
+        layout="@layout/activity_authenticate_user_info_screen"
+        android:visibility="gone" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/backBtn"
         style="@style/Widget.Dokany.TopAppBar.NavigationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        app:srcCompat="?attr/homeAsUpIndicator"
         app:tint="@color/colorIconTopAppBar" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        app:layout_constraintBottom_toTopOf="@id/subtitles"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_dokany_icon"
-        app:tint="?attr/colorPrimary" />
-
-    <FrameLayout
-        android:id="@+id/subtitles"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        app:layout_constraintBottom_toTopOf="@id/steps"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo">
-
-        <TextView
-            android:id="@+id/phoneNumberSubtitleTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sign in with your existing Dokany account\nor create a new one"
-            android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-        <TextView
-            android:id="@+id/smsVerificationSubtitleTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:visibility="gone"
-            tools:text="Please enter the verification code that has been sent to +961 76 142 144" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/steps"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subtitles">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/phoneNumberStep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneNumberContainer"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Phone number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:startIconDrawable="@drawable/ic_country_code">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phoneNumberEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:maxLength="8"
-                    android:textSize="20sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/sendVerificationCodeBtn"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:enabled="false"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="16dp"
-                android:text="Send verification code"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phoneNumberContainer" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/sendVerificationCodeLoadingView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="6dp"
-                android:visibility="gone"
-                app:cardBackgroundColor="?attr/colorPrimary"
-                app:cardCornerRadius="4dp"
-                app:contentPadding="11dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/phoneNumberContainer">
-
-                <com.google.android.material.progressindicator.CircularProgressIndicator
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:indeterminate="true"
-                    app:indicatorColor="?attr/colorOnPrimary"
-                    app:indicatorSize="24dp"
-                    app:trackCornerRadius="8dp" />
-
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/smsVerificationStep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <com.mukesh.OtpView
-                android:id="@+id/smsVerificationOtpView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:inputType="number"
-                android:textAppearance="?attr/textAppearanceBody1"
-                app:itemCount="6"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:lineColor="@color/colorPrimary"
-                app:viewType="line" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/signInBtn"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:enabled="false"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="16dp"
-                android:text="Sign in"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/smsVerificationOtpView" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/signInLoadingView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="6dp"
-                android:visibility="gone"
-                app:cardBackgroundColor="?attr/colorPrimary"
-                app:cardCornerRadius="4dp"
-                app:contentPadding="11dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/smsVerificationOtpView">
-
-                <com.google.android.material.progressindicator.CircularProgressIndicator
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:indeterminate="true"
-                    app:indicatorColor="?attr/colorOnPrimary"
-                    app:indicatorSize="24dp"
-                    app:trackCornerRadius="8dp" />
-
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

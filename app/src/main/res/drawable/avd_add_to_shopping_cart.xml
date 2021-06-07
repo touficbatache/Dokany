@@ -1,0 +1,166 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="48dp"
+            android:height="48dp"
+            android:viewportWidth="48"
+            android:viewportHeight="48">
+            <group
+                android:name="add_icon_group"
+                android:pivotX="12"
+                android:pivotY="5"
+                android:translateX="12"
+                android:translateY="12">
+                <path
+                    android:name="add_icon"
+                    android:pathData="M 15.497 5.005 L 13.482 5.005 L 13.482 3.005 C 13.482 1.665 11.476 1.665 11.476 3.005 L 11.476 5.005 L 9.503 5.005 C 8.166 5.005 8.166 7.016 9.503 7.016 L 11.476 7.016 L 11.476 8.995 C 11.476 10.335 13.482 10.335 13.482 8.995 L 13.482 7.016 L 15.497 7.016 C 16.834 7.016 16.834 5.005 15.497 5.005 Z"
+                    android:fillColor="#000"
+                    android:strokeWidth="1"/>
+            </group>
+            <group
+                android:name="shopping_cart_group"
+                android:translateX="12"
+                android:translateY="12">
+                <path
+                    android:name="shopping_cart"
+                    android:pathData="M 8.5 19 C 7.164 19 6.494 20.616 7.439 21.561 C 8.384 22.506 10 21.836 10 20.5 C 10 19.672 9.328 19 8.5 19 Z M 19 16 L 7 16 C 5.667 16 5.667 14 7 14 L 15.491 14 C 16.829 13.996 18.004 13.11 18.376 11.824 L 19.961 6.275 C 20.358 5.001 18.447 4.406 18.05 5.68 L 16.453 11.27 C 16.331 11.7 15.939 11.998 15.491 12 L 8.754 12 C 8.087 9.666 7.412 7.333 6.739 5 C 6.315 3.806 5.188 3.007 3.921 3 L 3 3 C 1.667 3 1.667 5 3 5 L 3.921 5 C 4.367 5.002 4.759 5.297 4.883 5.725 L 5.038 6.27 L 5.039 6.275 L 6.679 12.017 C 2.91 12.423 3.209 18 7 18 L 19 18 C 20.333 18 20.333 16 19 16 Z M 16.5 19 C 15.164 19 14.494 20.616 15.439 21.561 C 16.384 22.506 18 21.836 18 20.5 C 18 19.672 17.328 19 16.5 19 Z"
+                    android:fillColor="#000"
+                    android:strokeWidth="1"/>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="add_icon_group">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:startOffset="6"
+                    android:duration="598"
+                    android:valueFrom="0"
+                    android:valueTo="180"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:startOffset="1"
+                    android:duration="156"
+                    android:valueFrom="12"
+                    android:valueTo="2"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateX"
+                    android:duration="298"
+                    android:valueFrom="12"
+                    android:valueTo="5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:startOffset="157"
+                    android:duration="188"
+                    android:valueFrom="2"
+                    android:valueTo="12"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateX"
+                    android:startOffset="397"
+                    android:duration="403"
+                    android:valueFrom="5"
+                    android:valueTo="12"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="shopping_cart_group">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:startOffset="6"
+                    android:duration="360"
+                    android:valueFrom="0"
+                    android:valueTo="-10"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateX"
+                    android:startOffset="6"
+                    android:duration="376"
+                    android:valueFrom="12"
+                    android:valueTo="4"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:startOffset="6"
+                    android:duration="151"
+                    android:valueFrom="12"
+                    android:valueTo="8"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:startOffset="366"
+                    android:duration="434"
+                    android:valueFrom="-10"
+                    android:valueTo="0"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/bounce_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateX"
+                    android:startOffset="534"
+                    android:duration="266"
+                    android:valueFrom="9"
+                    android:valueTo="12"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateY"
+                    android:startOffset="157"
+                    android:duration="202"
+                    android:valueFrom="8"
+                    android:valueTo="12"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="translateX"
+                    android:startOffset="397"
+                    android:duration="137"
+                    android:valueFrom="4"
+                    android:valueTo="9"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="shopping_cart">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="pathData"
+                android:startOffset="168"
+                android:duration="159"
+                android:valueFrom="M 8.5 19 C 7.164 19 6.494 20.616 7.439 21.561 C 8.384 22.506 10 21.836 10 20.5 C 10 19.672 9.328 19 8.5 19 Z M 19 16 L 7 16 C 5.667 16 5.667 14 7 14 L 15.491 14 C 16.829 13.996 18.004 13.11 18.376 11.824 L 19.961 6.275 C 20.358 5.001 18.447 4.406 18.05 5.68 L 16.453 11.27 C 16.331 11.7 15.939 11.998 15.491 12 L 12.123 12 L 8.754 12 C 8.087 9.666 7.412 7.333 6.739 5 C 6.315 3.806 5.188 3.007 3.921 3 L 3 3 C 1.667 3 1.667 5 3 5 L 3.921 5 C 4.367 5.002 4.759 5.297 4.883 5.725 L 5.038 6.27 L 5.039 6.275 L 6.679 12.017 C 2.91 12.423 3.209 18 7 18 L 19 18 C 20.333 18 20.333 16 19 16 Z M 16.5 19 C 15.164 19 14.494 20.616 15.439 21.561 C 16.384 22.506 18 21.836 18 20.5 C 18 19.672 17.328 19 16.5 19 Z"
+                android:valueTo="M 8.5 19 C 7.164 19 6.494 20.616 7.439 21.561 C 8.384 22.506 10 21.836 10 20.5 C 10 19.672 9.328 19 8.5 19 Z M 19 16 L 7 16 C 5.667 16 5.667 14 7 14 L 15.491 14 C 16.829 13.996 18.004 13.11 18.376 11.824 L 19.961 6.275 C 20.358 5.001 18.447 4.406 18.05 5.68 L 16.453 11.27 C 16.331 11.7 19.419 4.971 18.971 4.973 L 12.851 4.992 L 6.731 5.012 C 6.731 5.012 6.731 5.012 6.731 5.012 C 6.307 3.818 5.188 3.007 3.921 3 L 3 3 C 1.667 3 1.667 5 3 5 L 3.921 5 C 4.367 5.002 4.759 5.297 4.883 5.725 L 5.038 6.27 L 5.039 6.275 L 6.679 12.017 C 2.91 12.423 3.209 18 7 18 L 19 18 C 20.333 18 20.333 16 19 16 Z M 16.5 19 C 15.164 19 14.494 20.616 15.439 21.561 C 16.384 22.506 18 21.836 18 20.5 C 18 19.672 17.328 19 16.5 19 Z"
+                android:valueType="pathType"
+                android:interpolator="@android:anim/decelerate_interpolator"/>
+        </aapt:attr>
+    </target>
+    <target android:name="add_icon">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="fillAlpha"
+                android:startOffset="345"
+                android:duration="10"
+                android:valueFrom="1"
+                android:valueTo="0"
+                android:valueType="floatType"
+                android:interpolator="@android:interpolator/fast_out_slow_in"/>
+        </aapt:attr>
+    </target>
+</animated-vector>

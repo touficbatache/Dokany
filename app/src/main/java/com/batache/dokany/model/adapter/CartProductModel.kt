@@ -1,5 +1,6 @@
 package com.batache.dokany.model.adapter
 
+import android.graphics.Color
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,10 +10,13 @@ import com.airbnb.epoxy.EpoxyModelClass
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import com.batache.dokany.GlideApp
 import com.batache.dokany.R
+import com.batache.dokany.extractColors
+import com.batache.dokany.view.PriceTextView
+import com.google.android.material.card.MaterialCardView
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.layout_product_cart.view.*
+import kotlinx.android.synthetic.main.model_cart_product.view.*
 
-@EpoxyModelClass(layout = R.layout.layout_product_cart)
+@EpoxyModelClass(layout = R.layout.model_cart_product)
 abstract class CartProductModel : EpoxyModelWithHolder<CartProductModel.CartProductHolder>() {
 
   @EpoxyAttribute
@@ -39,12 +43,22 @@ abstract class CartProductModel : EpoxyModelWithHolder<CartProductModel.CartProd
     holder.quantityTv.text = "$quantity"
     GlideApp.with(holder.imageIv.context)
       .load(FirebaseStorage.getInstance().getReferenceFromUrl(images[0]))
+      .extractColors { colors ->
+        colors?.apply {
+          holder.productColorSplash.setCardBackgroundColor(colors.backgroundColor)
+          holder.productColorSplash.outlineAmbientShadowColor = Color.YELLOW
+          holder.productColorSplash.outlineSpotShadowColor = Color.YELLOW
+        }
+      }
       .into(holder.imageIv)
     holder.titleTv.text = title
     holder.relevantDetailTv.text = relevantDetail
-    holder.unitPriceTv.text = "$unitPrice LBP"
-    quantity?.let {
-      holder.finalPriceTv.text = "${unitPrice?.times(it)} LBP"
+
+    unitPrice?.let { unitPrice ->
+      holder.unitPriceTv.price = unitPrice
+      quantity?.let { quantity ->
+        holder.finalPriceTv.price = unitPrice.times(quantity)
+      }
     }
 
     holder.itemView.setOnClickListener(listener)
@@ -58,18 +72,20 @@ abstract class CartProductModel : EpoxyModelWithHolder<CartProductModel.CartProd
 
   class CartProductHolder : EpoxyHolder() {
     lateinit var itemView: View
+    lateinit var productColorSplash: MaterialCardView
     lateinit var quantityTv: TextView
     lateinit var imageIv: ImageView
     lateinit var titleTv: TextView
     lateinit var relevantDetailTv: TextView
-    lateinit var unitPriceTv: TextView
-    lateinit var finalPriceTv: TextView
+    lateinit var unitPriceTv: PriceTextView
+    lateinit var finalPriceTv: PriceTextView
 
     override fun bindView(itemView: View) {
       this.itemView = itemView
+      productColorSplash = itemView.colorSplash
       quantityTv = itemView.quantityTv
       imageIv = itemView.imageIv
-      titleTv = itemView.titleTv
+      titleTv = itemView.nameTv
       relevantDetailTv = itemView.relevantDetailTv
       unitPriceTv = itemView.unitPriceTv
       finalPriceTv = itemView.finalPriceTv

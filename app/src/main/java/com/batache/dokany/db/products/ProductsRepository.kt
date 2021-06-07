@@ -3,86 +3,63 @@ package com.batache.dokany.db.products
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
-import com.batache.dokany.model.pojo.Product
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.firestore.ktx.toObjects
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
+import com.batache.dokany.db.base.BaseRepository
+import com.batache.dokany.model.pojo.product.Product
+import com.batache.dokany.model.pojo.product.ProductResponse
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.flow.Flow
 
-class ProductsRepository(private val productsDao: ProductsDao) {
-
-  // Products //
+class ProductsRepository(private val productsDao: ProductsDao) : BaseRepository() {
 
   @WorkerThread
-  suspend fun insert(product: Product) {
+  suspend fun insert(product: ProductResponse) {
     productsDao.insert(product)
   }
 
   @WorkerThread
-  suspend fun insertAll(products: List<Product>) {
+  suspend fun insertAll(products: List<ProductResponse>) {
     productsDao.insertAll(products)
   }
 
   suspend fun refreshProducts() {
-    withContext(Dispatchers.IO) {
-      val snapshot = Firebase.firestore.collection("products").get().await()
-      val products = snapshot.toObjects<Product>()
-      insertAll(products)
+    val productsRepoResponse = firebaseRepo.getProducts()
+    if (productsRepoResponse.isSuccessful) {
+      productsRepoResponse.data?.let { insertAll(it) }
     }
   }
 
-  val products: LiveData<List<Product>> = productsDao.getProducts().asLiveData()
+  val products = productsDao.getProducts().asLiveData()
 
-  suspend fun refreshProduct(id: String) {
-    withContext(Dispatchers.IO) {
-      val snapshot = Firebase.firestore.collection("products").document(id).get().await()
-      val product = snapshot.toObject<Product>()
-      product?.let {
-        insert(product)
-      }
-    }
-  }
-
+  // TODO: Get product from Firebase, not from Room
   fun getProduct(id: String): LiveData<Product> = productsDao.getProduct(id).asLiveData()
 
-//  // Product sellers (join) //
-//
-//  suspend fun getSellersForProduct(id: String): List<SellerProductDetailz> {
-//    val snapshot = Firebase.firestore.collection("sellerProducts")
-//      .whereEqualTo("productId", id)
-//      .get()
-//      .await()
-//    return snapshot.toObjects<SellerProductDetailz>()
-//  }
+  val productsInFavorites: LiveData<List<Product>> =
+    productsDao.getProductsInFavorites().asLiveData()
 
-//  suspend fun getRecommendedSellerProductDetails(productId: String): LiveData<SellerProductDetailz> {
-//    val liveData: MediatorLiveData<SellerProductDetailz> = MediatorLiveData()
-//
-//    withContext(Dispatchers.IO) {
-//      val recommendedSellerSnapshot =
-//        Firebase.firestore.collection("recommendedSellers")
-//          .whereEqualTo("productId", productId)
-//          .get()
-//          .await()
-//      if (recommendedSellerSnapshot.documents.isNotEmpty()) {
-//        val recommendedSeller = recommendedSellerSnapshot.documents[0].toObject<RecommendedSeller>()
-//        val sellerProductDetailsSnapshot =
-//          Firebase.firestore.collection("sellerProducts")
-//            .whereEqualTo("sellerId", recommendedSeller?.sellerId)
-//            .whereEqualTo("productId", productId)
-//            .get()
-//            .await()
-//        if (sellerProductDetailsSnapshot.documents.isNotEmpty()) {
-//          liveData.postValue(sellerProductDetailsSnapshot.documents[0].toObject<SellerProductDetailz>())
-//        }
-//      }
-//    }
-//
-//    return liveData
-//  }
+  @WorkerThread
+  suspend fun addToFavorites(productId: String): Boolean {
+    if (FirebaseAuth.getInstance().currentUser == null) {
+      return false
+    }
+    productsDao.addToFavorites(productId)
+    firebaseRepo.addToFavorites(productId)
+    return true
+  }
+
+  @WorkerThread
+  suspend fun isInFavorites(productId: String): Boolean {
+    return productsDao.isInFavorites(productId)
+  }
+
+  fun isInFavoritesLive(productId: String): Flow<Product?> {
+    return productsDao.isInFavoritesLive(productId)
+  }
+
+  @WorkerThread
+  suspend fun removeFromFavorites(productId: String) {
+    productsDao.removeFromFavorites(productId)
+    firebaseRepo.removeToFavorites(productId)
+  }
 
   @WorkerThread
   suspend fun delete(id: String) {

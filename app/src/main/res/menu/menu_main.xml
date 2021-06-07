@@ -5,23 +5,41 @@
 
     <item
         android:id="@+id/shopFragment"
-        android:icon="@drawable/selector_ic_storefront"
+        android:icon="@drawable/selector_ic_store"
         android:title="@string/shop" />
+
+<!--    <item-->
+<!--        android:id="@+id/storesFragment"-->
+<!--        android:icon="@drawable/selector_ic_shopping_bag"-->
+<!--        android:title="@string/stores" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/brandsFragment"-->
+<!--        android:icon="@drawable/selector_ic_tag_alt"-->
+<!--        android:title="@string/brands" />-->
+
     <item
-        android:id="@+id/storesFragment"
-        android:icon="@drawable/selector_ic_storefront"
-        android:title="@string/stores" />
+        android:id="@+id/recipesFragment"
+        android:icon="@drawable/ic_line_restaurant"
+        android:title="@string/recipes" />
+
     <item
-        android:id="@+id/brandsFragment"
-        android:icon="@drawable/selector_ic_local_offer"
-        android:title="@string/brands" />
+        android:id="@+id/familyBondFragment"
+        android:icon="@drawable/ic_family_knot"
+        android:title="@string/family_bond" />
+
     <item
-        android:id="@+id/favoritesFragment"
-        android:icon="@drawable/selector_ic_favorite"
-        android:title="@string/favorites" />
+        android:id="@+id/ordersFragment"
+        android:icon="@drawable/ic_line_receipt"
+        android:title="@string/orders" />
+
+<!--    <item-->
+<!--        android:id="@+id/favoritesFragment"-->
+<!--        android:icon="@drawable/selector_ic_heart"-->
+<!--        android:title="@string/favorites" />-->
     <item
         android:id="@+id/accountFragment"
-        android:icon="@drawable/selector_ic_account_circle"
+        android:icon="@drawable/selector_ic_user"
         android:title="@string/account" />
 
 </menu>

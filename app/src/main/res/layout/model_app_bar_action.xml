@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><!--<com.google.android.material.imageview.ShapeableImageView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/iconIb"-->
+<!--    android:layout_width="44dp"-->
+<!--    android:layout_height="44dp"-->
+<!--    android:layout_marginHorizontal="4dp"-->
+<!--    android:background="#EEEEEE"-->
+<!--    app:contentPadding="10dp"-->
+<!--    app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.AppBarAction"-->
+<!--    app:tint="#111111"-->
+<!--    tools:srcCompat="@drawable/ic_line_search" />-->
+
+<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/iconIb"
+    style="@style/Widget.Dokany.TopAppBar.ActionButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:tint="@color/colorIconTopAppBar"
+    tools:srcCompat="@drawable/ic_line_search" />

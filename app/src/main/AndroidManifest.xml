@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.batache.dokany">
-
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
     <application
+        android:usesCleartextTraffic="true"
         android:name=".DokanyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,29 +21,74 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dokany">
-        <activity android:name=".app.MainActivity">
+        <activity
+            android:name=".app.MainActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="dokany" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".app.SearchActivity"
+            android:name=".app.shop.products.SearchActivity"
             android:windowSoftInputMode="stateVisible" />
         <activity
-            android:name=".app.ProductDetailActivity"
+            android:name="com.batache.dokany.app.shop.products.product_details.ProductDetailsActivity"
             android:label="" />
-        <activity android:name=".app.AuthenticateActivity" />
+        <activity android:name=".app.shop.products.CategoryActivity" />
+        <activity android:name=".app.account.authenticate.AuthenticateActivity" />
+
         <activity
-            android:name=".app.CouponsActivity"
+            android:name=".app.account.addresses.AddressesActivity"
+            android:label="@string/addresses" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".app.account.addresses.AddAddressActivity"
+            android:label="@string/add_address"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".app.account.coupons.CouponsActivity"
             android:label="@string/coupons" />
         <activity
-            android:name=".app.OrdersActivity"
+            android:name=".app.account.orders.OrdersActivity"
             android:label="@string/orders" />
         <activity
-            android:name=".app.CartActivity"
+            android:name=".app.orders.OrderDetailActivity"
+            android:label="@string/order_details" />
+        <activity
+            android:name=".app.family_bond.FamilyProfilesActivity"
+            android:label="@string/manage_profiles" />
+        <activity
+            android:name=".app.favorites.FavoritesActivity"
+            android:label="@string/favorites" />
+        <activity
+            android:name=".app.cart.CartActivity"
             android:label="@string/cart" />
+        <activity
+            android:name="com.batache.dokany.app.cart.checkout.CheckoutActivity"
+            android:label="@string/checkout"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".app.AddProductActivity"
+            android:label="@string/add_product" />
+        <activity
+            android:name="com.batache.dokany.app.shop.stores.StoreDetailsActivity"
+            android:label="Store details" />
     </application>
 
 </manifest>

@@ -1,34 +1,53 @@
 package com.batache.dokany
 
-import android.os.SystemClock
+import android.os.Handler
 import android.view.View
 
-abstract class DoubleClickListener : View.OnClickListener {
-  private var doubleClickQualificationSpanInMillis: Long
-  private var timestampLastClick: Long
+abstract class DoubleClickListener(val DOUBLE_CLICK_INTERVAL: Long = 200L) : View.OnClickListener {
+  /*
+   * Handler to process click event.
+   */
+  private val mHandler: Handler = Handler()
 
-  constructor() {
-    doubleClickQualificationSpanInMillis = DEFAULT_QUALIFICATION_SPAN
-    timestampLastClick = 0
-  }
+  /*
+   * Number of clicks in @DOUBLE_CLICK_INTERVAL interval.
+   */
+  private var clicks = 0
 
-  constructor(doubleClickQualificationSpanInMillis: Long) {
-    this.doubleClickQualificationSpanInMillis = doubleClickQualificationSpanInMillis
-    timestampLastClick = 0
-  }
+  /*
+   * Flag to check if click handler is busy.
+   */
+  private var isBusy = false
 
-  override fun onClick(v: View?) {
-    if (SystemClock.elapsedRealtime() - timestampLastClick < doubleClickQualificationSpanInMillis) {
-      onDoubleClick()
+  override fun onClick(view: View) {
+    if (!isBusy) {
+      //  Prevent multiple click in this short time
+      isBusy = true
+
+      // Increase clicks count
+      clicks++
+      mHandler.postDelayed({
+        if (clicks >= 2) {  // Double tap.
+          onDoubleClick(view)
+        }
+        if (clicks == 1) {  // Single tap
+          onSingleClick(view)
+        }
+
+        // we need to restore clicks count
+        clicks = 0
+      }, DOUBLE_CLICK_INTERVAL)
+      isBusy = false
     }
-    timestampLastClick = SystemClock.elapsedRealtime()
   }
 
-  abstract fun onDoubleClick()
+  /**
+   * Called when the user make a single click.
+   */
+  abstract fun onSingleClick(view: View?)
 
-  companion object {
-    // The time in which the second tap should be done in order to qualify as
-    // a double click
-    private const val DEFAULT_QUALIFICATION_SPAN: Long = 200
-  }
+  /**
+   * Called when the user make a double click.
+   */
+  abstract fun onDoubleClick(view: View?)
 }

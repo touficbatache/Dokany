@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/start">
+    <!--    <group android:id="@+id/start">-->
+    <!--        <item-->
+    <!--            android:id="@+id/action_search"-->
+    <!--            android:icon="@drawable/ic_baseline_search_24"-->
+    <!--            android:title="@string/action_search" />-->
+    <!--    </group>-->
+    <group android:id="@+id/end">
+        <!--        <item-->
+        <!--            android:id="@+id/action_filter"-->
+        <!--            android:icon="@drawable/ic_line_filter"-->
+        <!--            android:title="@string/action_filter" />-->
         <item
             android:id="@+id/action_search"
-            android:icon="@drawable/ic_baseline_search_24"
+            android:icon="@drawable/ic_line_search"
             android:title="@string/action_search" />
-    </group>
-    <group android:id="@+id/end">
-        <item
-            android:id="@+id/action_filter"
-            android:icon="@drawable/ic_baseline_tune_24"
-            android:title="@string/action_filter" />
     </group>
 </menu>

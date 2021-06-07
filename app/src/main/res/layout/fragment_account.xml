@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <com.batache.dokany.view.DokanyTopAppBar
         android:id="@+id/dokanyTopAppBar"
@@ -12,98 +12,298 @@
         app:liftOnScroll="true"
         app:showLogo="true" />
 
-    <!--    <com.google.android.material.appbar.AppBarLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="#ffffff"-->
-    <!--        app:liftOnScroll="true">-->
-
-    <!--        <FrameLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="?attr/actionBarSize">-->
-
-    <!--            <androidx.appcompat.widget.AppCompatImageView-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="28dp"-->
-    <!--                android:layout_gravity="center"-->
-    <!--                android:adjustViewBounds="true"-->
-    <!--                app:srcCompat="@drawable/ic_dokany_logo" />-->
-
-    <!--        </FrameLayout>-->
-
-    <!--    </com.google.android.material.appbar.AppBarLayout>-->
-
-    <LinearLayout
-        android:id="@+id/contentCl"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/account"
+        <LinearLayout
+            android:id="@+id/contentCl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="16dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Signed in as"
-                android:textAppearance="?attr/textAppearanceOverline"
-                app:layout_constraintBottom_toTopOf="@id/phoneNumberTv"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:paddingTop="16dp">
 
-            <TextView
-                android:id="@+id/phoneNumberTv"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:text="Signed in as"
+                    android:textAppearance="?attr/textAppearanceOverline"
+                    app:layout_constraintBottom_toTopOf="@id/signedInNameOrPhoneTv"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/signedInNameOrPhoneTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toTopOf="@id/manageAccountChip"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="+961 76 142 144" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/manageAccountChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Manage account"
+                    app:chipBackgroundColor="@android:color/transparent"
+                    app:chipStrokeColor="#eee"
+                    app:chipStrokeWidth="1dp"
+                    app:layout_constraintBottom_toTopOf="@id/subscriptionCard"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:id="@+id/subscriptionCard"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:layout_marginHorizontal="24dp"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:outlineAmbientShadowColor="@android:color/transparent"-->
+<!--                    android:outlineSpotShadowColor="?attr/colorPrimary"-->
+<!--                    app:cardElevation="12dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintDimensionRatio="674:425"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent">-->
+
+<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:background="@drawable/gradient"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/logo"-->
+<!--                            android:layout_width="128dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="24dp"-->
+<!--                            android:layout_marginTop="24dp"-->
+<!--                            android:adjustViewBounds="true"-->
+<!--                            android:src="@drawable/ic_dokany_full_logo_medium"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            app:tint="?attr/colorOnPrimary" />-->
+
+<!--                        <com.google.android.material.button.MaterialButton-->
+<!--                            style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginEnd="16dp"-->
+<!--                            android:text="Manage"-->
+<!--                            android:theme="@style/Theme.Dokany.OnPrimary"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@id/logo"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="@id/logo" />-->
+
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:id="@+id/title"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_marginStart="24dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_marginTop="24dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowColor="#dddddd"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowDx="0.1"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowDy="0.1"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowRadius="4"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="Your subscription"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="?attr/textAppearanceHeadline6"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textColor="?attr/colorOnPrimary"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            app:layout_constraintTop_toBottomOf="@id/logo" />&ndash;&gt;-->
+
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/expiry"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="24dp"-->
+<!--                            android:layout_marginBottom="32dp"-->
+<!--                            android:orientation="vertical"-->
+<!--                            app:layout_constraintBottom_toTopOf="@id/name"-->
+<!--                            app:layout_constraintStart_toStartOf="parent">-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:shadowColor="#dddddd"-->
+<!--                                android:shadowDx="0.1"-->
+<!--                                android:shadowDy="0.1"-->
+<!--                                android:shadowRadius="2"-->
+<!--                                android:text="1-month free trial"-->
+<!--                                android:textAppearance="?attr/textAppearanceBody1"-->
+<!--                                android:textColor="?attr/colorOnPrimary" />-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="until 19/03/2020"-->
+<!--                                android:textAppearance="?attr/textAppearanceOverline"-->
+<!--                                android:textColor="?attr/colorOnPrimary" />-->
+
+<!--                        </LinearLayout>-->
+
+<!--                        &lt;!&ndash;                        <TextView&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:id="@+id/features"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_marginHorizontal="24dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:layout_marginTop="16dp"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowColor="#dddddd"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowDx="0.1"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowDy="0.1"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:shadowRadius="4"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:text="Family Link &amp; Priority Pass"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textAppearance="?attr/textAppearanceBody1"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            android:textColor="?attr/colorOnPrimary"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            app:layout_constraintTop_toBottomOf="@id/expiry"&ndash;&gt;-->
+<!--                        &lt;!&ndash;                            app:layout_constraintStart_toStartOf="parent" />&ndash;&gt;-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/name"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginHorizontal="24dp"-->
+<!--                            android:layout_marginBottom="24dp"-->
+<!--                            android:fontFamily="@font/kredit_front"-->
+<!--                            android:shadowColor="#dddddd"-->
+<!--                            android:shadowDx="0.1"-->
+<!--                            android:shadowDy="0.1"-->
+<!--                            android:shadowRadius="4"-->
+<!--                            android:text="Mr. Toufic Batache"-->
+<!--                            android:textAllCaps="true"-->
+<!--                            android:textAppearance="?attr/textAppearanceBody1"-->
+<!--                            android:textColor="?attr/colorOnPrimary"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                </com.google.android.material.card.MaterialCardView>-->
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/subscriptionCard"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:outlineAmbientShadowColor="@android:color/transparent"
+                    android:outlineSpotShadowColor="#312e25"
+                    app:cardElevation="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="674:425"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <!-- #222223 -> #4a4a4a -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#312e25"
+                        android:orientation="vertical">
+
+                        <!-- #f5d971 -->
+                        <ImageView
+                            android:id="@+id/logo"
+                            android:layout_width="128dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="24dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/logo_new"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="#fce38a" />
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:text="Manage"
+                            android:textColor="#fce38a"
+                            android:theme="@style/Theme.Dokany.OnPrimary"
+                            app:layout_constraintBottom_toBottomOf="@id/logo"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/logo" />
+
+                        <LinearLayout
+                            android:id="@+id/expiry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginBottom="32dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toTopOf="@id/cardHolderNameTv"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:shadowColor="#fce38a"
+                                android:shadowDx="0.1"
+                                android:shadowDy="0.1"
+                                android:shadowRadius="2"
+                                android:text="1-month free trial"
+                                android:textAppearance="?attr/textAppearanceBody1"
+                                android:textColor="#fce38a" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="until 19/03/2020"
+                                android:textAppearance="?attr/textAppearanceOverline"
+                                android:textColor="#fce38a" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/cardHolderNameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="24dp"
+                            android:layout_marginBottom="24dp"
+                            android:fontFamily="@font/kredit_front"
+                            android:shadowColor="#fce38a"
+                            android:shadowDx="0.1"
+                            android:shadowDy="0.1"
+                            android:shadowRadius="4"
+                            android:text="Mr. Toufic Batache"
+                            android:textAllCaps="true"
+                            android:textAppearance="?attr/textAppearanceBody1"
+                            android:textColor="#fce38a"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#dddddd" />
+
+            <com.batache.dokany.view.DokanyListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="+961 76 142 144" />
+                android:overScrollMode="never"
+                app:items="@menu/menu_account"
+                tools:itemCount="6"
+                tools:listitem="@layout/model_list_item" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dddddd" />
-
-        <com.airbnb.epoxy.EpoxyRecyclerView
-            android:id="@+id/actionsRv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#dddddd" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/customerSupportBtn"
-            style="@style/Widget.Dokany.List.ListItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Chat with us"
-            android:theme="@style/Widget.Dokany.List.ListItem"
-            app:icon="@drawable/ic_baseline_support_agent_24" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signOutBtn"
-            style="@style/Widget.Dokany.List.ListItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign out"
-            android:theme="@style/Widget.Dokany.List.ListItem"
-            app:icon="@drawable/ic_baseline_logout_24" />
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

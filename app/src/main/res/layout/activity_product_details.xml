@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootViewCoordLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.shop.products.product_details.ProductDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/backgroundCl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        tools:background="#ECEFF4"
+        tools:paddingTop="24dp">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            style="@style/Widget.Dokany.TopAppBar.NavigationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="?attr/homeAsUpIndicator" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topSectionLl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="40dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                android:contentDescription="Product image"
+                app:layout_constraintBottom_toTopOf="@id/shadow"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/favoriteAnim"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="70dp"
+                android:alpha="0"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/imageView"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="@id/imageView"
+                app:layout_constraintTop_toTopOf="@id/imageView"
+                tools:alpha="1"
+                tools:srcCompat="@drawable/avd_favorite"
+                tools:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/shadow"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/productDetailsCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="12dp"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:shapeAppearanceOverlay="?attr/shapeAppearanceLargeComponent"
+        tools:layout_marginTop="194dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/productDetailsCl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="70dp">
+
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:letterSpacing="0"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toStartOf="@id/favoriteBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Warm Carw Longsleev" />
+
+            <ImageButton
+                android:id="@+id/favoriteBtn"
+                style="@style/Widget.Dokany.TopAppBar.NavigationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:padding="14dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/nameTv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/selector_ic_heart"
+                app:tint="@color/grey_8e"
+                tools:tint="#0BA4C3" />
+
+            <TextView
+                android:id="@+id/relevantDetailTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/grey_8e"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameTv"
+                tools:text="330ml"
+                tools:textColor="#0BA4C3" />
+
+            <com.batache.dokany.view.DokanySellerChooser
+                android:id="@+id/sellerChooserView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relevantDetailTv"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/descriptionTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/colorOnBackgroundHighEmphasisLight"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sellerChooserView"
+                tools:text="Nestlé Pure Life Still Spring Water is free from sugar, has zero calories and is 100% natural water. It has a light, refreshing taste that’s ideal for your kid’s lunchbox."
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/relatedProductsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:text="You may also be interested in"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTv" />
+
+            <com.airbnb.epoxy.EpoxyRecyclerView
+                android:id="@+id/relatedProductsRv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:layout_marginTop="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relatedProductsTitle"
+                tools:listitem="@layout/model_product_slide" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/bottomActionsLl"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:clipToPadding="false"
+        android:elevation="12dp"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:showDividers="middle"
+        tools:layout_marginBottom="24dp">
+
+        <com.batache.dokany.view.QuantityView
+            android:id="@+id/quantityChooserView"
+            android:layout_width="0dp"
+            android:layout_height="58dp"
+            android:layout_weight="2"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/buttonsContainer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:clipToPadding="false"
+            android:paddingHorizontal="24dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addOrGoToCartBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/grey_8e"
+                android:padding="0dp"
+                android:text="@string/add_to_cart"
+                app:icon="@drawable/avd_add_to_shopping_cart"
+                app:iconGravity="textStart"
+                tools:backgroundTint="#0BA4C3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/changeQuantityBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/change_quantity"
+                android:visibility="gone"
+                app:backgroundTint="#0BA4C3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/removeFromCartBtn"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/remove"
+                android:textColor="#0BA4C3"
+                android:visibility="gone"
+                app:backgroundTint="@color/white"
+                app:rippleColor="#140BA4C3"
+                app:strokeColor="#0BA4C3" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

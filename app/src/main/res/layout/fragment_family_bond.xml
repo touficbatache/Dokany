@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.family_bond.FamilyProfilesActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.batache.dokany.view.DokanyTopAppBar
+            android:id="@+id/dokanyTopAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:liftOnScroll="true"
+            app:showLogo="true" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/welcomeCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:cardElevation="4dp"
+                    app:contentPadding="8dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+<!--                        android:text="@string/welcome_to_family_bond"-->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/welcome_to_family_bond"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            app:drawableEndCompat="@drawable/ic_family_knot"
+                            app:drawableTint="?android:attr/textColorPrimary" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:justificationMode="inter_word"
+                            android:text="@string/family_bond_description"
+                            android:textAppearance="?attr/textAppearanceBody1" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/gotItBtn"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/got_it" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/familyBondNameOverlineTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/you_re_a_member_of"
+                    android:textAppearance="?attr/textAppearanceOverline"
+                    app:layout_constraintBottom_toTopOf="@id/familyBondNameTv"
+                    app:layout_constraintStart_toStartOf="@id/familyBondNameTv"
+                    app:layout_constraintTop_toTopOf="@id/manageBtn" />
+
+                <TextView
+                    android:id="@+id/familyBondNameTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintBottom_toBottomOf="@id/manageBtn"
+                    app:layout_constraintEnd_toStartOf="@id/manageBtn"
+                    app:layout_constraintStart_toStartOf="@id/welcomeCard"
+                    app:layout_constraintTop_toBottomOf="@id/familyBondNameOverlineTv"
+                    tools:text="The Bataches" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/manageBtn"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/manage"
+                    app:icon="@drawable/ic_line_setting"
+                    app:iconPadding="8dp"
+                    app:layout_constraintEnd_toEndOf="@id/welcomeCard"
+                    app:layout_constraintTop_toBottomOf="@id/welcomeCard" />
+
+                <com.airbnb.epoxy.EpoxyRecyclerView
+                    android:id="@+id/shoppingListsRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:paddingHorizontal="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/manageBtn"
+                    app:spanCount="2"
+                    tools:listitem="@layout/model_shopping_list" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/presentation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FCE38A"
+        android:paddingTop="56dp"
+        android:visibility="gone">
+
+        <include
+            layout="@layout/fragment_family_bond_welcome_screen"
+            tools:visibility="gone" />
+
+        <include
+            layout="@layout/fragment_family_bond_setup_screen"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+
+</FrameLayout>

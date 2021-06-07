@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="?attr/textAppearanceOverline"
+            android:textDirection="locale"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Placed on: Tue, Apr 27, 2021 at 10:33 PM" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/photoThreeIv"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="16dp"
+            android:src="#EDEDED"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/itemCount"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/plusMoreStoresTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="1dp"
+            android:text="1+"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:textDirection="locale"
+            app:layout_constraintBottom_toBottomOf="@id/photoThreeIv"
+            app:layout_constraintEnd_toEndOf="@id/photoThreeIv"
+            app:layout_constraintTop_toTopOf="@id/photoThreeIv"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/photoTwoIv"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@color/light_blue_400"
+            app:layout_constraintStart_toStartOf="@id/photoThreeIv"
+            app:layout_constraintEnd_toStartOf="@id/photoThreeIv"
+            app:layout_constraintTop_toTopOf="@id/photoThreeIv"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"
+            tools:visibility="visible" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/photoOneIv"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:src="@color/light_blue_400"
+            app:layout_constraintStart_toStartOf="@id/photoTwoIv"
+            app:layout_constraintEnd_toStartOf="@id/photoTwoIv"
+            app:layout_constraintTop_toTopOf="@id/photoThreeIv"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle" />
+
+        <LinearLayout
+            android:id="@+id/itemCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dateTv">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_line_shopping_cart"
+                app:tint="#7b49ee" />
+
+            <TextView
+                android:id="@+id/itemCountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:text="5 items" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/storeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemCount">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_line_store"
+                app:tint="#7b49ee" />
+
+            <TextView
+                android:id="@+id/storeCountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:text="3 stores" />
+
+        </LinearLayout>
+
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/photoThreeIv"-->
+        <!--            android:layout_width="38dp"-->
+        <!--            android:layout_height="38dp"-->
+        <!--            android:src="#EDEDED"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/photoTwoIv"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/photoTwoIv"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/photoTwoIv"-->
+        <!--            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"-->
+        <!--            tools:visibility="visible" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/plusMoreStoresTv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="12dp"-->
+        <!--            android:layout_marginEnd="1dp"-->
+        <!--            android:text="3+"-->
+        <!--            android:textAppearance="?attr/textAppearanceSubtitle2"-->
+        <!--            android:textDirection="locale"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/photoThreeIv"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/photoThreeIv"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/photoThreeIv"-->
+        <!--            tools:visibility="visible" />-->
+
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/photoTwoIv"-->
+        <!--            android:layout_width="38dp"-->
+        <!--            android:layout_height="38dp"-->
+        <!--            android:src="@color/light_blue_400"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/photoOneIv"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/photoOneIv"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/photoOneIv"-->
+        <!--            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle"-->
+        <!--            tools:visibility="visible" />-->
+
+        <!--        <com.google.android.material.imageview.ShapeableImageView-->
+        <!--            android:id="@+id/photoOneIv"-->
+        <!--            android:layout_width="38dp"-->
+        <!--            android:layout_height="38dp"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:src="@color/light_blue_400"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/dateTv"-->
+        <!--            app:shapeAppearanceOverlay="@style/ShapeAppearance.Dokany.Circle" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/storeCountTv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="12dp"-->
+        <!--            android:textAppearance="?attr/textAppearanceSubtitle1"-->
+        <!--            android:textDirection="locale"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/photoOneIv"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/photoThreeIv"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/photoOneIv"-->
+        <!--            tools:text="Ordered 5 items from 3 stores." />-->
+
+        <LinearLayout
+            android:id="@+id/deliveryAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/storeCount">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_line_location_point"
+                app:tint="#7b49ee" />
+
+            <TextView
+                android:id="@+id/deliveryAddressTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:text="Floor 1, Batache Bldg, Iben Sina St, Mina, Tripoli" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/deliveryTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deliveryAddress">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_line_clock"
+                app:tint="#7b49ee" />
+
+            <TextView
+                android:id="@+id/deliveryTimeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textAppearance="?attr/textAppearanceBody1"
+                tools:text="Now" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/order_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Total: "
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textDirection="locale"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deliveryTime" />
+
+        <com.batache.dokany.view.PriceTextView
+            android:id="@+id/totalPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textDirection="locale"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/order_total"
+            app:layout_constraintTop_toTopOf="@id/order_total"
+            tools:text="15,000 L.L." />
+
+        <TextView
+            android:id="@+id/statusTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="#f5f5f5"
+            android:gravity="center"
+            android:padding="16dp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textDirection="locale"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_total"
+            tools:text="Processing" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/viewOrderBtn"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="View order"
+            app:icon="@drawable/ic_line_receipt"
+            app:iconPadding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/statusTv"
+            tools:text="View order #129" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
